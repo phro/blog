@@ -7,7 +7,7 @@
       );
   });
 </script>
-<img src="profile.jpg" class="profile-picture" />
+<img src="images/profile.jpg" class="profile-picture" />
 
 # Jesse Frohlich
 
@@ -50,7 +50,7 @@ analysis determined that traffic volume and street width were important factors,
 and individual feature analysis of speed humps determined that they reduce the
 collision rate by half!
 
-![Speed humps analysis](speed_humps.svg)
+![Speed humps analysis](images/speed_humps.svg)
 
 ### [Toki Pona syntax parser](https://github.com/phro/dcl)
 
