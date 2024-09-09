@@ -11,6 +11,19 @@
 
 # Jesse Frohlich
 
+<div class="icons">
+  <a
+    href="https://www.linkedin.com/in/jesse-frohlich"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <img src="/header/images/linkedin.svg" alt="LinkedIn" />
+  </a>
+  <a href="hidden" id="email" target="_blank" rel="noopener noreferrer">
+    <img src="/header/images/envelope.svg" alt="Email" />
+  </a>
+</div>
+
 ## About me
 
 I am a Math PhD, programmer, and complex problem-solver always up for hearing a
