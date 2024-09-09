@@ -76,6 +76,9 @@ h1 {
   font-size: 3rem;
   text-align: center;
 }
+h2 {
+  font-size: 2rem;
+}
 
 .profile-picture {
   display: block;
