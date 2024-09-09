@@ -1,0 +1,6 @@
+#!/bin/bash
+
+for file in $(find pages -name "*.md")
+do
+    pandoc --defaults settings $file -o $(dirname $file)/index.html
+done
