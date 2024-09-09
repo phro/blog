@@ -1,6 +1,9 @@
+---
+title: Jesse Frohlich
+...
 <script type="text/javascript">
   window.addEventListener("load", (event) => {
-    document.getElementById("email").href =
+    document.getElementById("email").href = // TODO: replace "id" with "class".
       "mailto:jesse.noreply.frohlich@noreply.gmail.com".replaceAll(
         "noreply.",
         "",

@@ -1,6 +1,12 @@
 #!/bin/bash
 
-for file in $(find pages -name "*.md")
+# TODO: generate /pages/blog/blog.md by indexing 
+
+for file in $(find pages -maxdepth 2 -name "*.md")
 do
-    pandoc --defaults settings $file -o $(dirname $file)/index.html
+    pandoc --defaults default $file -o $(dirname $file)/index.html
+done
+for file in $(find pages -path "pages/blog/*/*.md")
+do
+    pandoc --defaults default --template blog.html $file -o $(dirname $file)/index.html
 done

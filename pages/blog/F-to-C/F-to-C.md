@@ -1,4 +1,8 @@
-# Back-of-envelope temperature conversion
+---
+title: Back-of-envelope temperature conversion
+publication-date: 2024-09-09
+last-edit-date: 2024-09-09
+...
 
 Living in Canada is a bizarre experience. As we approach the 55th anniversary of
 the beginning of metrication in Canada, I still frequently experience talking

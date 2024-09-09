@@ -1,8 +1,6 @@
 from: gfm+tex_math_gfm
 to: html5
 standalone: true
-filters:
-  - "HeaderToTitle.lua"
 include-before-body: header/header.html
 include-after-body: header/contact.html
 template: default.html
