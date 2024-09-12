@@ -2,11 +2,18 @@
 
 # TODO: generate /pages/blog/blog.md by indexing 
 
-for file in $(find pages -maxdepth 2 -name "*.md")
-do
-    pandoc --defaults default $file -o $(dirname $file)/index.html
-done
+echo Building blog pages...
 for file in $(find pages -path "pages/blog/*/*.md")
 do
-    pandoc --defaults default --template blog.html $file -o $(dirname $file)/index.html
+    working_dir=$(dirname $file)
+    echo $working_dir
+    pandoc --defaults default --template blog.html $file --output=$working_dir/index.html
+    ./getTeaser $file $working_dir/summary | pandoc --defaults blogSummary --metadata uri=$(basename $working_dir) --template blogSummary.html --output=$working_dir/summary.html
 done
+
+echo Building blog archive...
+./buildArchive $(find pages -name "summary.html") | 
+pandoc --defaults default --metadata title="Jesse Frohlich's Blog" --from=html --output=pages/blog/index.html
+
+echo Building homepage...
+pandoc --defaults default pages/*.md -o pages/index.html

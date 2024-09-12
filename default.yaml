@@ -1,10 +1,10 @@
-from: gfm+tex_math_gfm
+from: gfm+tex_math_gfm+smart 
 to: html5
+html-math-method:
+  method: mathml
 standalone: true
 include-before-body: header/header.html
 include-after-body: header/contact.html
 template: default.html
-html-math-method:
-  method: mathml
 toc: false
 resource-path: [".", "${.}/header"]

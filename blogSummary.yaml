@@ -1,0 +1,6 @@
+from: gfm+tex_math_gfm+smart
+to: html5
+html-math-method:
+  method: mathml
+shift-heading-level-by: 1
+toc: false
