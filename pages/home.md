@@ -1,15 +1,7 @@
 ---
 title: Jesse Frohlich
 ...
-<script type="text/javascript">
-  window.addEventListener("load", (event) => {
-    document.getElementById("email").href = // TODO: replace "id" with "class".
-      "mailto:jesse.noreply.frohlich@noreply.gmail.com".replaceAll(
-        "noreply.",
-        "",
-      );
-  });
-</script>
+
 <img src="images/profile.jpg" class="profile-picture" />
 
 # Jesse Frohlich
@@ -22,8 +14,11 @@ title: Jesse Frohlich
   >
     <img src="/header/images/linkedin.svg" alt="LinkedIn" />
   </a>
-  <a href="hidden" id="email" target="_blank" rel="noopener noreferrer">
+  <a href="hidden" class="email" target="_blank" rel="noopener noreferrer">
     <img src="/header/images/envelope.svg" alt="Email" />
+  </a>
+  <a href="https://github.com/phro" target="_blank" rel="noopener noreferrer">
+    <img src="/header/images/github.svg" alt="GitHub" />
   </a>
 </div>
 
