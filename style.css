@@ -16,7 +16,6 @@ body {
 nav {
   font-size: 1.5rem;
   padding: 0.5rem 1rem;
-  position: sticky;
   top: 0;
   display: flex;
   justify-content: space-around;
@@ -63,13 +62,14 @@ section {
   scroll-margin-top: 3rem;
 }
 
-section img {
+p img {
   display: block;
   margin: auto;
   margin-top: 2rem;
   margin-bottom: 2rem;
   border: 1px solid black;
   border-radius: 0.1rem;
+  max-width: 90vw;
 }
 
 h1 {
@@ -83,7 +83,7 @@ h2 {
 .profile-picture {
   display: block;
   margin: auto;
-  width: 50vw;
+  width: 90vw;
   max-width: 25rem;
   border-radius: 50%;
   padding: 2rem;

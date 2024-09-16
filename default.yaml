@@ -1,4 +1,4 @@
-from: gfm+tex_math_gfm+smart 
+from: gfm+tex_math_gfm+smart
 to: html5
 html-math-method:
   method: mathml

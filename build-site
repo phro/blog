@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# TODO: generate /pages/blog/blog.md by indexing 
-
 echo Building blog pages...
 for file in $(find pages -path "pages/blog/*/*.md")
 do
@@ -12,7 +10,7 @@ do
 done
 
 echo Building blog archive...
-./buildArchive $(find pages -name "summary.html") | 
+./sortPosts $(find pages -name "summary.html") | 
 pandoc --defaults default --metadata title="Jesse Frohlich's Blog" --from=html --output=pages/blog/index.html
 
 echo Building homepage...
