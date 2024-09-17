@@ -2,6 +2,7 @@ import Control.Arrow
 import Data.List
 import Data.Maybe
 import System.Environment
+import Data.Function
 
 getDate :: String -> Maybe String
 getDate text = case dropWhile (/= "class=\"date\">Date:") . concatMap words . lines $ text of
@@ -14,7 +15,7 @@ getDateTeaser text = case (getDate text, text) of
   _ -> Nothing
 
 getDateTeasers :: [String] -> String
-getDateTeasers = concatMap snd . sortOn fst . mapMaybe getDateTeaser
+getDateTeasers = concatMap snd . sortBy (flip compare `on` fst) . mapMaybe getDateTeaser
 
 main :: IO ()
 main =
