@@ -1,3 +1,5 @@
 pages/**/*.html
 *.o
 *.hi
+getTeaser
+sortPosts
