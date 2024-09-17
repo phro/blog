@@ -1,3 +1,18 @@
+:root {
+  --background-color: #fdf6e3;
+  --background-emphasized: #eee8d5;
+  --border-color: #93a1a1;
+  --text-color: #073642;
+  --yellow: #b58900;
+  --orange: #cb4b16;
+  --red: #dc322f;
+  --magenta: #d33682;
+  --violet: #6c71c4;
+  --blue: #268bd2;
+  --cyan: #2aa198;
+  --green: #859900;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -10,7 +25,16 @@ body {
   margin: auto;
   padding: 0 5%;
   max-width: 50rem;
-  background: #fdf6e3;
+  background: var(--background-color);
+  color: var(--text-color);
+}
+
+a:link {
+  color: var(--blue);
+}
+
+a:visited {
+  color: var(--violet);
 }
 
 nav {
@@ -20,38 +44,51 @@ nav {
   display: flex;
   justify-content: space-around;
   gap: 5px;
-  background: #fdf6e3;
+  background: var(--background-color);
   line-height: 2rem;
 }
 nav a {
   display: block;
   flex: 1 1 0px;
   text-align: center;
-  background: #eee8d5;
-  border: 1px solid black;
+  background: var(--background-emphasized);
+  border: 1px solid var(--border-color);
   border-radius: 0.2rem;
   /* padding: 2px; */
 }
 nav a:link {
-  color: black;
+  color: var(--text-color);
   text-decoration: none;
 }
 nav a:visited {
-  color: black;
+  color: var(--text-color);
   text-decoration: none;
 }
 .icons {
   display: flex;
   justify-content: center;
 }
-.icons img {
+.icons img,
+.icons svg {
   width: 2rem;
+  height: 2rem;
   margin: 1rem;
 }
 .icons a {
   text-decoration: none;
 }
+.icons a:link {
+  color: var(--border-color);
+  text-decoration: none;
+}
+.icons a:visited {
+  color: var(--border-color);
+  text-decoration: none;
+}
 
+hr {
+  color: var(--border-color);
+}
 header,
 footer {
   padding: 1rem 0;
@@ -67,7 +104,7 @@ p img {
   margin: auto;
   margin-top: 2rem;
   margin-bottom: 2rem;
-  border: 1px solid black;
+  border: 1px solid var(--border-color);
   border-radius: 0.1rem;
   max-width: 90vw;
 }
