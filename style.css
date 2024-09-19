@@ -109,6 +109,10 @@ p img {
   max-width: 100%;
 }
 
+pre {
+  overflow:auto;
+}
+
 h1 {
   font-size: 3rem;
   text-align: center;
