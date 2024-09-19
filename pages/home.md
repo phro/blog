@@ -66,11 +66,11 @@ Haskell, I led our team to define production rules for a majority of the 140+
 words and phrase structures in the constructed human language Toki Pona. To
 improve interactiveness, we added a visualisation of the resulting tree.
 
-An example of the output is below:
+An example of the output is below (The input translates roughly to "I like
+you"):
 
 ```
-$ dcl "mi wile sina" # (Translation: "I love you")
-
+$ dcl "mi wile e sina"
 Start
 │
 ├─ Subject Phrase
@@ -83,9 +83,16 @@ Start
    │  │
    │  └─ wile
    │
-   └─ Content
+   └─ Preposition Cluster
       │
-      └─ sina
+      ├─ Preposition
+      │  │
+      │  └─ e
+      │
+      └─ Content
+         │
+         └─ sina
+
 ```
 
 ## PhD Thesis
