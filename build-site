@@ -29,7 +29,6 @@ while true; do
                 ;;
                 *)
                     archive_name="$2"
-                    echo $archive_name
                 ;;
             esac
             shift 2
@@ -73,8 +72,10 @@ done
 echo Copying header files...
 cp -r header build
 
+echo Setting permissions...
+chmod a+r --recursive build/
+
 if [ "$build_archive" = true ] ; then
-    echo Building tarball...
-    echo $archive_name
+    echo Building tarball $archive_name.tgz...
     tar --create --gzip --file "$archive_name".tgz build
 fi
