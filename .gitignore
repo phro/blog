@@ -3,3 +3,5 @@ pages/**/*.html
 *.hi
 getTeaser
 sortPosts
+build/
+*.tgz

@@ -1,17 +1,80 @@
 #!/bin/bash
 
+TEMP=$(getopt -o 'ca::' --long 'clean,archive::' -n $0 -- "$@")
+
+if [ $? -ne 0 ]; then
+    echo 'Terminating...' >&2
+    exit 1
+fi
+
+eval set -- "$TEMP"
+unset TEMP
+
+build_archive=false
+
+while true; do
+    case "$1" in
+        '-c'|'--clean')
+            echo 'Cleaning...'
+            rm -r build
+            rm -f build.tgz
+            shift
+            continue
+        ;;
+        '-a'|'--archive')
+            build_archive=true
+            case "$2" in
+                '')
+                    archive_name=build
+                ;;
+                *)
+                    archive_name="$2"
+                    echo $archive_name
+                ;;
+            esac
+            shift 2
+            continue
+        ;;
+        '--')
+            shift
+            break
+        ;;
+        *)
+            echo 'Internal error!' >&2
+            exit 1
+        ;;
+    esac
+done
+
+(cd pages && find -type d -path "./*") | xargs -I path mkdir -p build/path
+
 echo Building blog pages...
-for file in $(find pages -path "pages/blog/*/*.md")
+for file in $( (cd pages && find -path "./blog/*/*.md") )
 do
     working_dir=$(dirname $file)
-    echo $working_dir
-    pandoc --defaults default --template blog.html $file --output=$working_dir/index.html
-    ./getTeaser $file $working_dir/summary | pandoc --defaults blogSummary --metadata uri=$(basename $working_dir) --template blogSummary.html --output=$working_dir/summary.html
+    echo "  "$(basename $working_dir)
+    pandoc --defaults default --template blog.html pages/$file --output=build/$working_dir/index.html
+    ./getTeaser pages/$file | pandoc --defaults blogSummary --metadata uri=$(basename $working_dir) --template blogSummary.html --output=build/$working_dir/summary.html
 done
 
 echo Building blog archive...
 ./sortPosts $(find pages -name "summary.html") | 
-pandoc --defaults default --metadata title="Jesse Frohlich's Blog" --from=html --output=pages/blog/index.html
+pandoc --defaults default --metadata title="Jesse Frohlich's Blog" --from=html --output=build/blog/index.html
 
 echo Building homepage...
-pandoc --defaults default pages/*.md -o pages/index.html
+pandoc --defaults default pages/*.md -o build/index.html
+
+echo Copying media...
+for file in $( (cd pages && find -type d -name "images") ) 
+do
+    cp pages/$file/* build/$file
+done
+
+echo Copying header files...
+cp -r header build
+
+if [ "$build_archive" = true ] ; then
+    echo Building tarball...
+    echo $archive_name
+    tar --create --gzip --file "$archive_name".tgz build
+fi
